@@ -1,0 +1,524 @@
+{
+  "info": {
+    "_postman_id": "evently-api-collection",
+    "name": "Event Management API (Evently)",
+    "description": "REST API collection for Event Management System - CRUD operations for Users, Events, Registrants, Attendances, and Activities.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": ["{{baseUrl}}"],
+              "path": [""]
+            }
+          }
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": ["{{baseUrl}}"],
+              "path": ["health"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get All Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Get User by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Budi Santoso\",\n  \"email\": \"budi@evently.com\",\n  \"role\": \"Administrator\",\n  \"avatar\": \"BS\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users"]
+            }
+          }
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Budi Updated\",\n  \"email\": \"budi.updated@evently.com\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/users/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "users", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Events",
+      "item": [
+        {
+          "name": "Get All Events",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events"]
+            }
+          }
+        },
+        {
+          "name": "Get Events (Filter by Status)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events?status=Published",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events"],
+              "query": [
+                {
+                  "key": "status",
+                  "value": "Published"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Event Summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events/summary",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events", "summary"]
+            }
+          }
+        },
+        {
+          "name": "Get Event by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Event",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Tech Conference 2026\",\n  \"date\": \"2026-11-15\",\n  \"location\": \"Bandung Convention Hall\",\n  \"quota\": 300,\n  \"status\": \"Draft\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/events",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events"]
+            }
+          }
+        },
+        {
+          "name": "Update Event",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Tech Conference 2026 - Updated\",\n  \"status\": \"Published\",\n  \"quota\": 350\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/events/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Event",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/events/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "events", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Registrants",
+      "item": [
+        {
+          "name": "Get All Registrants",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants"]
+            }
+          }
+        },
+        {
+          "name": "Get Registrants (Filter by Event)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants?event_id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants"],
+              "query": [
+                {
+                  "key": "event_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Registrant by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Registrant",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_id\": 1,\n  \"name\": \"Dewi Lestari\",\n  \"email\": \"dewi@example.com\",\n  \"phone\": \"+628556677889\",\n  \"notes\": \"Butuh kursi roda\",\n  \"status\": \"Pending\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants"]
+            }
+          }
+        },
+        {
+          "name": "Update Registrant",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Confirmed\",\n  \"notes\": \"Sudah dikonfirmasi via email\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Registrant",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/registrants/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "registrants", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attendances",
+      "item": [
+        {
+          "name": "Get All Attendances",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances"]
+            }
+          }
+        },
+        {
+          "name": "Get Attendances (Filter by Event)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances?event_id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances"],
+              "query": [
+                {
+                  "key": "event_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Attendance by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Attendance (Check-in)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_id\": 1,\n  \"registrant_id\": 1,\n  \"status\": \"Hadir\",\n  \"check_in_time\": \"2026-09-18 09:00:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances"]
+            }
+          }
+        },
+        {
+          "name": "Update Attendance Status",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"status\": \"Hadir\",\n  \"check_in_time\": \"2026-09-18 09:15:00\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances", "1"]
+            }
+          }
+        },
+        {
+          "name": "Delete Attendance",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/attendances/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "attendances", "1"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Activities",
+      "item": [
+        {
+          "name": "Get All Activities",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/activities",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "activities"]
+            }
+          }
+        },
+        {
+          "name": "Get Activities (with Limit)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/activities?limit=5",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "activities"],
+              "query": [
+                {
+                  "key": "limit",
+                  "value": "5"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Activity by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/activities/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "activities", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Activity",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"event_id\": 1,\n  \"message\": \"Registrasi baru telah dibuka untuk event Product Design Summit\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/activities",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "activities"]
+            }
+          }
+        },
+        {
+          "name": "Delete Activity",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/activities/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "activities", "1"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
