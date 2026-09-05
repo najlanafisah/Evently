@@ -1,0 +1,1 @@
+document.querySelectorAll(".nav-item[data-view]").forEach(el=>el.addEventListener("click",()=>{APP_STATE.activeView=el.dataset.view;renderView()}));document.getElementById("menuButton").addEventListener("click",()=>document.getElementById("sidebar").classList.toggle("open"));renderView();

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Evently — Event Management SaaS</title>
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/tokens.css" />
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <span class="brand-mark">E</span>
+          <span>evently<span class="brand-dot">.</span></span>
+        </div>
+        <div class="workspace-switcher">
+          <span class="workspace-avatar">EP</span>
+          <span class="workspace-copy"
+            ><strong>Event Project</strong><small>Workspace</small></span
+          >
+          <span class="chevron">⌄</span>
+        </div>
+        <nav class="nav-section" aria-label="Navigasi utama">
+          <p class="nav-label">Workspace</p>
+          <button class="nav-item active" data-view="dashboard">
+            <span>⌂</span>Dashboard
+          </button>
+          <button class="nav-item" data-view="events">
+            <span>▦</span>Data Event
+          </button>
+          <button class="nav-item" data-view="registration">
+            <span>＋</span>Pendaftaran
+          </button>
+          <button class="nav-item" data-view="registrants">
+            <span>◎</span>Data Pendaftar
+          </button>
+          <button class="nav-item" data-view="attendance">
+            <span>✓</span>Presensi
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-item"><span>⚙</span>Pengaturan</button>
+          <div class="profile">
+            <span class="profile-avatar">LA</span>
+            <span class="workspace-copy"
+              ><strong>Lala</strong><small>Administrator</small></span
+            >
+            <span class="more">•••</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <button
+            class="menu-button"
+            id="menuButton"
+            aria-label="Buka navigasi"
+          >
+            ☰
+          </button>
+          <div class="breadcrumbs">
+            <span>Workspace</span><b>/</b
+            ><strong id="breadcrumb">Dashboard</strong>
+          </div>
+          <div class="topbar-actions">
+            <button class="icon-button" aria-label="Notifikasi">♧</button>
+            <button class="avatar-button">LA</button>
+          </div>
+        </header>
+        <section class="page" id="app"></section>
+      </main>
+    </div>
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/state.js"></script>
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/views.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

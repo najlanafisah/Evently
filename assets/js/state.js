@@ -1,0 +1,1 @@
+window.APP_STATE={activeView:"dashboard"};
